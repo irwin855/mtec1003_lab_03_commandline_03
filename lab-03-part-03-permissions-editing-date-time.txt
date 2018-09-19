@@ -17,23 +17,59 @@ We're going to be writing a shell script.  First, though... let's figure out wha
 
 What command did you use, and what was its output?
 ----------
-
-
+date
+Wed Sept 19 13:19:13 EDT 2018
 
 ==========
 2. Print out a calendar for this month.
 
 What command did you use, and what was its output?
 ----------
+cal 2018
+2018
 
+ 2018
 
+      January               February               March
+Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6               1  2  3               1  2  3
+ 7  8  9 10 11 12 13   4  5  6  7  8  9 10   4  5  6  7  8  9 10
+14 15 16 17 18 19 20  11 12 13 14 15 16 17  11 12 13 14 15 16 17
+21 22 23 24 25 26 27  18 19 20 21 22 23 24  18 19 20 21 22 23 24
+28 29 30 31           25 26 27 28           25 26 27 28 29 30 31
+                                            
+       April                  May                   June
+Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
+ 1  2  3  4  5  6  7         1  2  3  4  5                  1  2
+ 8  9 10 11 12 13 14   6  7  8  9 10 11 12   3  4  5  6  7  8  9
+15 16 17 18 19 20 21  13 14 15 16 17 18 19  10 11 12 13 14 15 16
+22 23 24 25 26 27 28  20 21 22 23 24 25 26  17 18 19 20 21 22 23
+29 30                 27 28 29 30 31        24 25 26 27 28 29 30
+                                            
+        July                 August              September
+Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
+ 1  2  3  4  5  6  7            1  2  3  4                     1
+ 8  9 10 11 12 13 14   5  6  7  8  9 10 11   2  3  4  5  6  7  8
+15 16 17 18 19 20 21  12 13 14 15 16 17 18   9 10 11 12 13 14 15
+22 23 24 25 26 27 28  19 20 21 22 23 24 25  16 17 18 19 20 21 22
+29 30 31              26 27 28 29 30 31     23 24 25 26 27 28 29
+                                            30
+      October               November              December
+Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6               1  2  3                     1
+ 7  8  9 10 11 12 13   4  5  6  7  8  9 10   2  3  4  5  6  7  8
+14 15 16 17 18 19 20  11 12 13 14 15 16 17   9 10 11 12 13 14 15
+21 22 23 24 25 26 27  18 19 20 21 22 23 24  16 17 18 19 20 21 22
+28 29 30 31           25 26 27 28 29 30     23 24 25 26 27 28 29
+                                            30 31 
 
 ==========
 3. Go to your home directory.  Verify that you're in your home directory.
 
 What commands did you use to do this?
 ----------
-
+cd ~ 
+pwd
 
 
 ==========
@@ -41,7 +77,8 @@ What commands did you use to do this?
 
 What commands did you use to do this?
 ----------
-
+touch copy_to_backup.sh
+ls
 
 
 ==========
@@ -49,7 +86,7 @@ What commands did you use to do this?
 
 What command did you use to find the permissions?
 ----------
-
+-rw-r--r--  1 OwnerPC  staff  0 Sep 19 13:29 copy_to_backup.sh
 
 
 ==========
@@ -57,7 +94,8 @@ What command did you use to find the permissions?
 
 What commands did you use to do this?  What was the output?
 ----------
-
+chmod u+x copy_to_backup.sh
+No output
 
 
 ==========
@@ -67,16 +105,39 @@ $ ./copy_to_backup.sh
 
 What command did you use to try to execute the file?  What happens?
 ----------
-
-
+sh /Users/OwnerPC/copy_to_backup.sh
+No output
 
 ==========
 8. Open the file with nano
 
 What command did you use to do this?
 ----------
+nano copy_to_backup
+GNU nano 2.0.6           File: copy_to_backup.sh                              
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                [ Read 0 lines ]
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Page ^K Cut Text  ^C Cur Pos
+^X Exit      ^J Justify   ^W Where Is  ^V Next Page ^U UnCut Text^T To Spel
 
 ==========
 9. In your file, write the commands to do the following
@@ -89,13 +150,16 @@ Don't forget the first line of your shell script! It should begin with #!/bin/ba
 
 Write out the code in your file below...
 ----------
-
+#!/bin/bash
+#mkdir backup
+#cp -r . backup
+# Prints "I'm done backing up"
 
 
 ==========
 10. Create a directory in your home called test
 ----------
-
+mkdir test
 
 
 ==========
@@ -103,7 +167,8 @@ Write out the code in your file below...
 
 What commands did you use to do this?
 ----------
-
+touch 1.txt
+touch 2.txt
 
 
 ==========
@@ -111,7 +176,7 @@ What commands did you use to do this?
 
 What commands did you use to do this?
 ----------
-
+mv copy_to_backup.sh test
 
 
 ==========
@@ -119,6 +184,7 @@ What commands did you use to do this?
 
 What commands did you use to do this?
 ----------
+sh /Users/OwnerPC/copy_to_backup.sh
 
 
 
@@ -127,3 +193,8 @@ What commands did you use to do this?
 
 What commands did you use to do this?  Show the output.
 ----------
+ls
+1.txt			copy_to_backup.sh
+2.txt			backup
+cd backup
+ls
